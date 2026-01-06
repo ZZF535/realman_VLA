@@ -1,0 +1,27 @@
+# 忽略 Python 缓存
+__pycache__/
+*.py[cod]
+
+# 忽略巨大的模型权重文件 (非常重要！！！)
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.onnx
+*.h5
+weights/
+checkpoints/
+models/
+
+# 忽略数据集和视频
+data/
+dataset/
+datasets/
+*.mp4
+*.avi
+*.jpg
+*.png
+
+# 忽略虚拟环境
+venv/
+.env

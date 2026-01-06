@@ -1,0 +1,3 @@
+[submodule "dora/nodes/dora_arm_realman"]
+	path = dora/nodes/dora_arm_realman
+	url = https://github.com/BAAI-EI-DATA/dora_arm_realman.git

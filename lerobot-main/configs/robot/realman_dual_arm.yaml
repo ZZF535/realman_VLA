@@ -1,0 +1,26 @@
+robot:
+  # 指向我们的 Python 驱动类
+  _target_: lerobot.robots.realman_dual_arm.realman_dual_arm.RealManDualArmRobot
+
+  config:
+    # 刚才验证成功的 Link-Local IP
+    left_arm_ip: "169.254.128.18"
+    right_arm_ip: "169.254.128.19"
+    
+    # 机械臂运动保护 (每次 update 允许的最大弧度变化)
+    max_relative_target: 0.05
+
+    # === 相机配置 ===
+    # 为了先跑通流程，我们暂时把相机部分注释掉
+    # 等你插上 USB 摄像头或 RealSense 后再打开
+    cameras: {}
+    # cameras:
+    #   laptop:
+    #     _target_: lerobot.common.robot_devices.cameras.opencv.OpenCVCamera
+    #     camera_index: 0
+    #     fps: 30
+    #     width: 640
+    #     height: 480
+
+  # 校准文件存放路径
+  calibration_dir: .cache/calibration/realman_dual_arm

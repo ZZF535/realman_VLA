@@ -1,0 +1,31 @@
+nodes:
+  - id: arm_so101_leader
+    path: nodes/dora_arm_so101/dora_arm_so101/main.py
+    build: pip install -e nodes/dora_arm_so101
+    inputs:
+      get_joint: dora/timer/millis/33
+    outputs:
+      - joint_shoulder_pan
+      - joint_shoulder_lift
+      - joint_elbow_flex
+      - joint_wrist_flex
+      - joint_wrist_roll
+      - joint_gripper
+    env:
+      GET_DEVICE_FROM: PORT
+      PORT: /dev/ttyACM0
+      ARM_NAME: SO101-leader
+      ARM_ROLE: leader
+      CALIBRATION_DIR: nodes/dora_arm_so101/examples/.calibration/
+
+  - id: so101_leader_dora
+    path: dynamic
+    inputs:
+      leader_joint_shoulder_pan: arm_so101_leader/joint_shoulder_pan
+      leader_joint_shoulder_lift: arm_so101_leader/joint_shoulder_lift
+      leader_joint_elbow_flex: arm_so101_leader/joint_elbow_flex
+      leader_joint_wrist_flex: arm_so101_leader/joint_wrist_flex
+      leader_joint_wrist_roll: arm_so101_leader/joint_wrist_roll
+      leader_joint_gripper: arm_so101_leader/joint_gripper
+    outputs:
+      - action_joint

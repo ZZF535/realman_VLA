@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robodriver_robot_so101_aio_ros2"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+keywords = ["robotics", "lerobot", "so101_aio_ros2"]
+
+dependencies = [
+    "logging_mp",
+    "rclpy",
+    "numpy",
+    "pyzmq",
+    "opencv-python",
+    "cv_bridge",
+]
+
+[tool.setuptools.packages.find]
+include = ["robodriver_robot_so101_aio_ros2"]
